@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/entry_exit_project.iml" filepath="$PROJECT_DIR$/.idea/entry_exit_project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/k2lab-app.iml" filepath="$PROJECT_DIR$/.idea/k2lab-app.iml" />
     </modules>
   </component>
 </project>
