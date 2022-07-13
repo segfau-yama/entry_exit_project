@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% for item in object_list %}
+    <div>
+        <p>{{ item.student }}</p>
+        <p>{{ item.get_location_display }}</p>
+        {% if user == item.student %}
+        <p><a href="{% url 'test' item.id %}">編集</a></p>
+        {% endif %}
+    </div>
+    {% endfor %}
+    <p><a href="{% url 'logout' %}">ログアウト</a></p>
+</body>
+</html>
