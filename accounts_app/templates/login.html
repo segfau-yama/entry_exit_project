@@ -17,7 +17,7 @@
         <hr>
         {% endfor %}
         <button type="submit">ログイン</button>{% csrf_token %}
-        {% url 'signup' %}
+        <p><a href="{% url 'signup' %}">登録</a></p>
     </form>
 </body>
 
