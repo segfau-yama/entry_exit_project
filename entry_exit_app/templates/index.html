@@ -10,8 +10,9 @@
 <body>
     {% for item in object_list %}
     <div>
-        <p>{{ item.student }}</p>
+        <h1>{{ item.student }}</h1>
         <p>{{ item.get_location_display }}</p>
+        <hr>
         {% if user == item.student %}
         <p><a href="{% url 'test' item.id %}">編集</a></p>
         {% endif %}
