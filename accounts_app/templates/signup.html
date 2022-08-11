@@ -1,10 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}居場所わかる君{% endblock %}
+
+{% block content %}
 <form method="post">
     {% csrf_token %}
-    <input type="text" name="username" placeholder="ユーザー ID">
-    <input type="password" name="password1" placeholder="パスワード">
-    <input type="password" name="password2" placeholder="パスワード確認用">
+    <p><input type="text" name="username" placeholder="ユーザー ID"></p>
+    <p><input type="password" name="password1" placeholder="パスワード"></p>
+    <p><input type="password" name="password2" placeholder="パスワード確認用"></p>
     {% if form.errors %}
     <p>利用できないユーザー ID やパスワードの可能性があります。入力内容を再度ご確認ください。</p>
     {% endif %}
-    <button type="submit" class="btn btn-success">アカウント作成</button>
+    <p><button type="submit" class="btn btn-success">アカウント作成</button></p>
 </form>
+{%endblock%}

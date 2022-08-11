@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://unpkg.com/sanitize.css" rel="stylesheet"/>
+    <title>{% block title %}居場所わかる君{% endblock %}</title>
+</head>
+
+<body>
+    <div id="sidebar">
+        {% block sidebar %}
+        <h1>居場所わかる君</h1>
+        {% endblock %}
+    </div>
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
