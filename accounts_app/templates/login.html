@@ -3,14 +3,26 @@
 {% block title %}居場所わかる君{% endblock %}
 
 {% block content %}
+<div class="fs-1">ログイン</div>
 <form action="" method="POST">
     {% csrf_token %}
-    {{ form.non_field_errors }}
-    {% for field in form %}
-    <p>{{ field }}</p>
-    <p>{{ field.errors }}</p>
-    {% endfor %}
-    <p><button type="submit">ログイン</button></p>
-    <p><a href="{% url 'signup' %}">登録</a></p>
+    <div class="card mx-auto mt-4">
+        <div class="card-body">
+            <div class="mb-2">
+                <label for="my_name" class="form-label">名前</label>
+                <input type="text" name="username" class="form-control" id="my_name">
+            </div>
+            <div class="mb-2">
+                <label for="my_pass" class="form-label">パスワード</label>
+                <input type="password" name="password" class="form-control" id="my_pass">
+            </div>
+            <div class="d-grid gap-2 col-6 mx-auto mb-2">
+                <button type="submit" class="btn btn-outline-primary my-1">ログイン</button>
+            </div>
+            {% if form.errors %}
+                <div class="text-danger">利用できないユーザー ID やパスワードの可能性があります。入力内容を再度ご確認ください。</div>
+            {% endif %}
+        </div>
+    </div>
 </form>
 {%endblock%}

@@ -4,30 +4,25 @@
 {% block title %}居場所わかる君{% endblock %}
 
 {% block content %}
-{% for item in object_list %}
 <div class="py-5 bg-white">
     <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+            {% for item in object_list %}
             <div class="col">
-                <div class="card-body">
-                    <h1>{{ item.student }}</h1>
-                    <p>{{ item.get_location_display }}</p>
-                    {% if user == item.student %}
-                        <p><a href="{% url 'test' item.id %}">編集</a></p>
-                    {% endif %}
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="fs-3 card-title">{{ item.student }}</div>
+                        <div class="fs-5 card-subtitle">{{ item.get_location_display }}</div>
+                        {% if user == item.student %}
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <a href="{% url 'test' item.id %}" class="btn btn-primary">編集</a>
+                        </div>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
     </div>
 </div>
-<div>
-    <h1>{{ item.student }}</h1>
-    <p>{{ item.get_location_display }}</p>
-    {% if user == item.student %}
-    <p><a href="{% url 'test' item.id %}">編集</a></p>
-    {% endif %}
-</div>
-<hr>
-{% endfor %}
-<p><a href="{% url 'logout' %}">ログアウト</a></p>
 {%endblock%}
