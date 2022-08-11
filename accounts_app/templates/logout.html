@@ -4,7 +4,7 @@
 
 {% block content %}
 <form action="" method="POST">
-    <h1>ログアウトしました。</h1>
-    <p><a href="{% url 'home' %}">ホームへ戻る</a></p>
+    <div class="fs-1 my-3">ログアウトしました。</div>
+    <button type="button" class="btn btn-outline-primary" onclick="location.href='{% url 'home' %}'">ホームへ戻る</button>
 </form>
-{%endblock%}
+{% endblock %}
