@@ -4,25 +4,21 @@
 {% block title %}居場所わかる君{% endblock %}
 
 {% block content %}
-<div class="py-5 bg-white">
-    <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
-            {% for item in object_list %}
-            <div class="col">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <div class="fs-3 card-title">{{ item.student }}</div>
-                        <div class="fs-5 card-subtitle">{{ item.get_location_display }}</div>
-                        {% if user == item.student %}
-                        <div class="d-grid gap-2 col-6 mx-auto">
-                            <a href="{% url 'test' item.id %}" class="btn btn-primary">編集</a>
-                        </div>
-                        {% endif %}
-                    </div>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 py-4">
+    {% for item in object_list %}
+    <div class="col">
+        <div class="card h-100">
+            <div class="card-body">
+                <div class="fs-3 card-title">{{ item.student }}</div>
+                <div class="fs-5 card-subtitle">{{ item.get_location_display }}</div>
+                {% if user == item.student %}
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <a href="{% url 'update' item.id %}" class="btn btn-primary">編集</a>
                 </div>
+                {% endif %}
             </div>
-            {% endfor %}
         </div>
     </div>
+    {% endfor %}
 </div>
 {% endblock %}

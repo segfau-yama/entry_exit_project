@@ -1,5 +1,5 @@
-from django.views.generic import ListView, UpdateView
-from  django.core.exceptions import PermissionDenied
+from django.views.generic import ListView, UpdateView, TemplateView
+from django.core.exceptions import PermissionDenied
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import student_location
 from django.urls import reverse_lazy
@@ -11,7 +11,7 @@ class index_views(LoginRequiredMixin, ListView):
     login_url = '/accounts/login/'
 
 
-class test_views(LoginRequiredMixin, UpdateView):
+class update_views(LoginRequiredMixin, UpdateView):
     model = student_location
     fields = ('student', 'location')
     template_name = 'update.html'
@@ -24,4 +24,8 @@ class test_views(LoginRequiredMixin, UpdateView):
         if obj.student != self.request.user:
             raise PermissionDenied
         return obj
+
+
+class test_views(TemplateView):
+    template_name = 'test.html'
 
